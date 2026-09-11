@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\MessageController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -24,6 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('rooms/{room:slug}', [RoomController::class, 'show'])->name('rooms.show');
+    Route::get('rooms/{room:slug}/messages', [MessageController::class, 'index'])->name('messages.index');
 });
 
 require __DIR__.'/auth.php';

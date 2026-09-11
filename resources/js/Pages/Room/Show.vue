@@ -3,7 +3,10 @@ import Footer from '@/Components/Chat/Footer.vue';
 import Header from '@/Components/Chat/Header.vue';
 import Messages from '@/Components/Chat/Messages.vue';
 import Nav from '@/Components/Chat/Nav.vue';
+import { useMessagesStore } from '@/Store/useMessagesStore';
 import { Head } from '@inertiajs/vue3';
+
+const messagesStore = useMessagesStore();
 
 defineProps({
     room: {
