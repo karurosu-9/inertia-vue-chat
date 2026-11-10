@@ -6,14 +6,17 @@ import Nav from '@/Components/Chat/Nav.vue';
 import { useMessagesStore } from '@/Store/useMessagesStore';
 import { Head } from '@inertiajs/vue3';
 
-const messagesStore = useMessagesStore();
-
-defineProps({
+const props = defineProps({
     room: {
         type: Object,
         required: true,
     }
 });
+
+const messagesStore = useMessagesStore();
+
+// チャットルームを開いた際に、そのルームに紐づくコメントを全て取得し、messagesStoreのmessages[]に保存する
+messagesStore.fetchMessages(props.room.data.slug);
 </script>
 
 <template>

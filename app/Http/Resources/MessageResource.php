@@ -18,6 +18,7 @@ class MessageResource extends JsonResource
         return [
             'id'      => $this->id,
             'content' => $this->content,
+            'created_at' => $this->created_at->format('g:ia'), // format('g:ia')は日時を 「時:分am/pm」 の形で表示する指定
             'user' => UserResource::make($this->user)
         ];
     }
